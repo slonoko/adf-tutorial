@@ -13,7 +13,11 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "select1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          year as string,",
@@ -34,7 +38,26 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> MoviesADLS"
+				"     ignoreNoFilesFound: false) ~> MoviesADLS",
+				"MoviesADLS select(mapColumn(",
+				"          year,",
+				"          imdb,",
+				"          title,",
+				"          test,",
+				"          clean_test2 = clean_test,",
+				"          binary,",
+				"          budget,",
+				"          domgross,",
+				"          intgross,",
+				"          code,",
+				"          {budget_2013$},",
+				"          {domgross_2013$},",
+				"          {intgross_2013$},",
+				"          {period code},",
+				"          {decade code}",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1"
 			]
 		}
 	}
