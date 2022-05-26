@@ -1,0 +1,84 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkedService1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "movies.csv",
+				"container": "blobby"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "year",
+				"type": "String"
+			},
+			{
+				"name": "imdb",
+				"type": "String"
+			},
+			{
+				"name": "title",
+				"type": "String"
+			},
+			{
+				"name": "test",
+				"type": "String"
+			},
+			{
+				"name": "clean_test",
+				"type": "String"
+			},
+			{
+				"name": "binary",
+				"type": "String"
+			},
+			{
+				"name": "budget",
+				"type": "String"
+			},
+			{
+				"name": "domgross",
+				"type": "String"
+			},
+			{
+				"name": "intgross",
+				"type": "String"
+			},
+			{
+				"name": "code",
+				"type": "String"
+			},
+			{
+				"name": "budget_2013$",
+				"type": "String"
+			},
+			{
+				"name": "domgross_2013$",
+				"type": "String"
+			},
+			{
+				"name": "intgross_2013$",
+				"type": "String"
+			},
+			{
+				"name": "period code",
+				"type": "String"
+			},
+			{
+				"name": "decade code",
+				"type": "String"
+			}
+		]
+	}
+}

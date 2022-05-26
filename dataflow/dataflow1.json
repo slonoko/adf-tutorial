@@ -5,9 +5,9 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"linkedService": {
-						"referenceName": "linkedService1",
-						"type": "LinkedServiceReference"
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
 					},
 					"name": "MoviesADLS"
 				}
@@ -15,14 +15,26 @@
 			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          year as string,",
+				"          imdb as string,",
+				"          title as string,",
+				"          test as string,",
+				"          clean_test as string,",
+				"          binary as string,",
+				"          budget as string,",
+				"          domgross as string,",
+				"          intgross as string,",
+				"          code as string,",
+				"          {budget_2013$} as string,",
+				"          {domgross_2013$} as string,",
+				"          {intgross_2013$} as string,",
+				"          {period code} as string,",
+				"          {decade code} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false,",
-				"     format: 'delimited',",
-				"     columnDelimiter: ',',",
-				"     escapeChar: '\\\\',",
-				"     quoteChar: '\\\"',",
-				"     columnNamesAsHeader: false) ~> MoviesADLS"
+				"     ignoreNoFilesFound: false) ~> MoviesADLS"
 			]
 		}
 	}
